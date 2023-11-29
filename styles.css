@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.split-landing{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    color: white;
+    transition: 0.7s linear;
+    overflow: hidden;
+}
+.split-landing .left, .split-landing .right{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: 0.7s linear;
+    padding: 0 20px;
+}
+.split-landing .left{
+    grid-column: 1/2;
+    background-color: darkcyan;
+}
+.split-landing .right{
+    grid-column: 2/3;
+    background-color: dodgerblue;
+    left: 0;
+    top: 0;
+}
+.split-landing .outer img{
+    width: 70%;
+    margin-bottom: 20px;
+}
+.split-landing .outer h3{
+    transition: 0.7s;
+}
+.split-landing .inner{
+    display: none;
+    text-align: left;
+}
+.split-landing .inner button{
+    background-color: firebrick;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+.split-landing .inner h3, 
+.split-landing .inner p,
+.split-landing .inner ul{
+    margin-bottom: 10px;
+}
+.split-landing .inner ul{
+    list-style: none;
+    position: relative;
+}
+.split-landing .inner ul li::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    border-right: 2px solid firebrick;
+    border-bottom: 2px solid firebrick;
+    transform: rotateZ(-45deg);
+}
+.split-landing .back{
+    position: absolute;
+    top: 20px;
+    cursor: pointer;
+    transition: 0.7s;
+    opacity: 0;
+}
+.split-landing .back:hover .arrow{
+    background-color: white;
+    color: firebrick;
+}
+.split-landing .back .arrow{
+    font-size: 20px;
+    padding: 2px 7px;
+    background-color: firebrick;
+    border-radius: 50%;
+}
+.split-landing .left .back{
+    left: 20px
+}
+.split-landing .right .back{
+    right: 20px
+}
+@media (max-width: 576px) {
+    .split-landing{
+        grid-template-columns: none !important;
+        grid-template-rows: 50% 50%;
+    }
+    .split-landing .left, .split-landing .right{
+        flex-direction: column !important;
+        justify-content: center;
+    }
+    .split-landing .left{
+        grid-column: unset;
+        grid-row: 1/2;
+    }
+    .split-landing .right{
+        grid-column: unset;
+        grid-row: 2/3;
+    }
+}
